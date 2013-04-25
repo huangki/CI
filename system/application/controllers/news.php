@@ -81,5 +81,9 @@ public function index()
     $this->mdin->upup($_POST['user_id'], $_POST);
     redirect('news/listing','refresh');
   }
+   function up()
+  {
+    
+  }
 }
 ?>
