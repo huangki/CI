@@ -1,0 +1,65 @@
+<html>
+<title>
+新的 view
+</title>
+<body>
+<?php 
+
+ $mytable = array (
+      'table_open' => '<table border="2" cellpadding="3" cellspacing="0">',
+      'heading_row_start' => '<tr bgcolor="#66cc44">',
+      'row_start' => '<tr bgcolor="#dddddd">' 
+      );
+    $this->table->set_template($mytable); 
+    
+    $this->table->set_empty("&nbsp;"); 
+  
+    $this->table->set_heading('edit or delete' ,'user_id', 'user_name', 'user_company', 'user_text'  
+         );
+  
+    $table_row = array();
+    foreach ($news_qry->result() as $s)
+    {
+      $table_row = NULL;
+	   $table_row[] = '<nobr>' . 
+        anchor('news/edit/' . $s->user_id, 'edit') . ' | ' .
+        anchor('news/delete/' . $s->user_id, 'delete',
+          "onClick=\" return confirm('你確定要刪除 '
+            + '名稱為$s->user_name 的資料嗎? 他會傷心的')\"") .
+        '</nobr>';
+      $table_row[] = $s->user_id;
+      $table_row[] = $s->user_name;
+      $table_row[] = $s->user_company;
+      $table_row[] = $s->user_text;
+	 
+	   $table_row[] = '<nobr>' . 
+        
+     
+
+      $this->table->add_row($table_row);
+    }    
+
+    $f_table = $this->table->generate();
+	 echo $f_table;
+		?>
+  
+ <form  action="<?echo site_url("news/index")?> " methed="post">
+ 
+ <input type="submit"   value="返回新增"   />
+
+ <div class="navigation">
+<?php 
+  // nav bar
+  echo anchor('news/index', 'Home');
+  echo (' | ');
+   
+  echo anchor('news/listing', '查詢');
+?>
+
+</form>
+
+		
+</div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<?php 
+
+echo form_open('news/update');
+
+echo form_hidden('user_id', $row[0]->user_id);
+
+// an array of the fields in the student table
+$field_array = array('user_name','user_company','user_text' );
+foreach($field_array as $field_name)
+{
+  echo '<p>' . $field_name.': ';
+  echo form_input($field_name, $row[0]->$field_name) . '</p>';
+}
+
+// not setting the value attribute omits the submit from the $_POST array
+echo form_submit('', 'update'); 
+
+echo form_close();
+
+
+
+?>
+
+
+
+</html>

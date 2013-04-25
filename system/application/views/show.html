@@ -1,0 +1,36 @@
+<html>
+ 
+<form  action="<?echo site_url("news/input")?> " methed="post">
+
+<table border="1">
+<tr>
+<td>姓名:</td>
+<td><input name="memName"   type="text" size="30"   /></td>
+</tr>
+<tr>
+<td>帳號:    </td>
+<td><input name="memId"   type="text" size="30"   />最多8個文數字</td>
+</tr>
+<tr>
+<td>密碼:</td>
+<td><input   name="memPsw"   type="text" size="30"   />最多8個文數字</td>
+</tr>
+<tr>
+<td>e-mail:</td>
+<td><input name="email"   type="text" size="30"   /></td>
+</tr>
+<tr>
+ 
+ 
+ 
+
+</table>
+ <input type="submit"   value="新增"   />
+
+<input type="reset" value="重新設定"    /> 
+</form>
+ <?php 
+  
+  echo anchor('news/listing', '查詢頁面');
+?>
+</html>
